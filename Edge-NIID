@@ -19,7 +19,7 @@ x_test = x_test.astype('float32') / 255.0
 x_train = x_train.reshape((-1, 28, 28, 1))
 x_test = x_test.reshape((-1, 28, 28, 1))
 
-# MNIST 손글씨 숫자를 분류하는 CNN 모델 생성
+# MNIST 손글씨 숫자 분류하는 CNN 모델
 model = tf.keras.Sequential([
     tf.keras.layers.Input(shape=(28, 28, 1)),
     tf.keras.layers.Conv2D(32, (5,5), activation='relu', kernel_initializer='he_uniform'),
@@ -31,7 +31,7 @@ model = tf.keras.Sequential([
     tf.keras.layers.Dense(10, activation='softmax', kernel_initializer='he_uniform')
 ])
 
-# 가중치 불러오기 시도
+# 가중치 불러오기
 try:
     model.load_weights('/content/drive/MyDrive/model_weights4.h5')
 except:
